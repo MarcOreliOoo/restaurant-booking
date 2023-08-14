@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactCalendar from "react-calendar";
 import { add, format } from "date-fns";
+import { CLOSING_TIME, INTERVAL, OPENING_TIME } from "~/constants/config";
 
 type DateType = {
     justDate: Date | null;
@@ -14,9 +15,9 @@ const Calendar = () => {
         if (!date.justDate) return;
         const { justDate } = date;
 
-        const beginning = add(justDate, { hours: 9 });
-        const end = add(beginning, { hours: 8 });
-        const interval = 30;
+        const beginning = add(justDate, { hours: OPENING_TIME });
+        const end = add(justDate, { hours: CLOSING_TIME });
+        const interval = INTERVAL;
 
         const times = [];
         for (let i = beginning; i <= end; i = add(i, { minutes: interval })) {
