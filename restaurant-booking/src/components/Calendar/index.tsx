@@ -28,6 +28,8 @@ const Calendar = () => {
 
     const times = getTimes();
 
+    if (date.dateTime) console.log(date.dateTime);
+
     return (
         <div className="flex h-screen flex-col items-center justify-center">
             {date.justDate ? (
